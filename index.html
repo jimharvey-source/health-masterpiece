@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Health Masterpiece — Lora Macfarlane</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1c1917;
+    --ink-mid: #44403c;
+    --ink-light: #78716c;
+    --ink-faint: #d6d3d1;
+    --cream: #faf8f5;
+    --warm: #f5f0e8;
+    --gold: #b5966a;
+    --gold-light: #d4b896;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Jost', sans-serif;
+  }
+
+  html, body {
+    width: 100%;
+    min-height: 100vh;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 48px 80px;
+    position: relative;
+  }
+
+  /* Header */
+  .header {
+    display: grid;
+    grid-template-columns: 1fr 180px;
+    align-items: end;
+    gap: 40px;
+    margin-bottom: 52px;
+    padding-bottom: 32px;
+    border-bottom: 0.5px solid var(--ink-faint);
+  }
+
+  .header-photo {
+    width: 180px;
+    height: 220px;
+    overflow: hidden;
+    flex-shrink: 0;
+    align-self: end;
+  }
+
+  .header-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    filter: grayscale(15%);
+  }
+
+  .header-photo .photo-placeholder {
+    width: 100%;
+    height: 100%;
+    background: var(--warm);
+    border: 0.5px solid var(--ink-faint);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .photo-placeholder span {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+  }
+
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .main-title {
+    font-family: var(--serif);
+    font-size: 52px;
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+
+  .main-title em {
+    font-style: italic;
+    color: var(--ink-mid);
+  }
+
+  .header-right {
+    text-align: right;
+    padding-bottom: 4px;
+  }
+
+  .practitioner {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--ink-mid);
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  /* Philosophy line */
+  .philosophy {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--ink-mid);
+    line-height: 1.7;
+    max-width: 620px;
+    margin-bottom: 56px;
+    padding-left: 20px;
+    border-left: 1px solid var(--gold-light);
+  }
+
+  /* Journey arc */
+  .arc-label {
+    font-family: var(--sans);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 28px;
+  }
+
+  .arc {
+    display: grid;
+    grid-template-columns: 1fr 24px 1fr 24px 1fr 24px 1fr;
+    align-items: center;
+    margin-bottom: 64px;
+    gap: 0;
+  }
+
+  .arc-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold-light);
+    font-size: 16px;
+    font-weight: 300;
+    padding-top: 2px;
+  }
+
+  .arc-stage {
+    background: var(--warm);
+    border: 0.5px solid var(--ink-faint);
+    padding: 20px 18px 18px;
+    position: relative;
+    transition: background 0.2s;
+  }
+
+  .arc-stage:hover {
+    background: #ede8df;
+  }
+
+  .arc-stage.featured {
+    background: var(--ink);
+    border-color: var(--ink);
+  }
+
+  .arc-stage.destination {
+    background: transparent;
+    border: 0.5px dashed var(--gold-light);
+  }
+
+  .stage-num {
+    font-family: var(--serif);
+    font-size: 11px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--gold);
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .arc-stage.featured .stage-num {
+    color: var(--gold-light);
+  }
+
+  .arc-stage.destination .stage-num {
+    color: var(--gold-light);
+  }
+
+  .stage-name {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  .arc-stage.featured .stage-name {
+    color: var(--cream);
+  }
+
+  .arc-stage.destination .stage-name {
+    color: var(--ink-mid);
+    font-style: italic;
+  }
+
+  .stage-desc {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--ink-light);
+    line-height: 1.65;
+  }
+
+  .arc-stage.featured .stage-desc {
+    color: #a8a29e;
+  }
+
+  .arc-stage.destination .stage-desc {
+    color: var(--ink-light);
+    font-style: italic;
+  }
+
+  /* Two column section */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 56px;
+  }
+
+  .col-head {
+    font-family: var(--sans);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .col-item {
+    padding: 14px 0;
+    border-bottom: 0.5px solid var(--ink-faint);
+  }
+
+  .col-item:first-of-type {
+    border-top: 0.5px solid var(--ink-faint);
+  }
+
+  .col-item-title {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .col-item-body {
+    font-family: var(--sans);
+    font-size: 11.5px;
+    font-weight: 300;
+    color: var(--ink-light);
+    line-height: 1.65;
+  }
+
+  /* The copy block */
+  .copy-block {
+    background: var(--ink);
+    padding: 40px 44px;
+    margin-bottom: 56px;
+    position: relative;
+  }
+
+  .copy-block::before {
+    content: '\201C';
+    font-family: var(--serif);
+    font-size: 120px;
+    color: rgba(255,255,255,0.06);
+    position: absolute;
+    top: -10px;
+    left: 28px;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .copy-text {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 300;
+    font-style: italic;
+    color: #e7e5e4;
+    line-height: 1.75;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Pricing strip */
+  .pricing-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px;
+    background: var(--ink-faint);
+    margin-bottom: 48px;
+    border: 0.5px solid var(--ink-faint);
+  }
+
+  .price-cell {
+    background: var(--cream);
+    padding: 22px 20px 20px;
+  }
+
+  .price-cell.mid {
+    background: var(--warm);
+  }
+
+  .price-tier {
+    font-family: var(--sans);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  .price-name {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .price-amount {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 300;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .price-amount span {
+    font-size: 14px;
+    color: var(--ink-light);
+  }
+
+  .price-desc {
+    font-family: var(--sans);
+    font-size: 10.5px;
+    font-weight: 300;
+    color: var(--ink-light);
+    line-height: 1.6;
+  }
+
+  /* Footer */
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 24px;
+    border-top: 0.5px solid var(--ink-faint);
+  }
+
+  .footer-name {
+    font-family: var(--serif);
+    font-size: 14px;
+    font-style: italic;
+    color: var(--ink-mid);
+  }
+
+  .footer-url {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: var(--ink-light);
+  }
+
+  .footer-arc {
+    font-family: var(--serif);
+    font-size: 12px;
+    font-style: italic;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+  }
+
+  /* Decorative line */
+  .gold-rule {
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    margin: 0 0 48px 0;
+  }
+
+  @media print {
+    body { background: white; }
+    .page { padding: 40px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="header-left">
+      <p class="eyebrow">A method for women's health</p>
+      <h1 class="main-title"><em>Your</em> Health<br>Masterpiece</h1>
+    </div>
+    <div class="header-right">
+      <p class="practitioner">Lora Macfarlane BSc MBAcC<br>Traditional Chinese Medicine<br>Functional Medicine · Women's Health</p>
+    </div>
+    <div class="header-photo">
+      <img src="https://images.squarespace-cdn.com/content/v1/654775c78ee5c958fd888c2b/3fc1b456-f247-4683-888d-869af4862101/photo_0041.jpg" alt="Lora Macfarlane" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="photo-placeholder" style="display:none"><span>Lora Macfarlane</span></div>
+    </div>
+  </div>
+
+  <p class="philosophy">Before every great work, there are studies. Lora helps her clients build a life — well lived, fully owned, and entirely theirs.</p>
+
+  <div class="gold-rule"></div>
+
+  <p class="arc-label">The journey</p>
+
+  <div class="arc">
+    <div class="arc-stage">
+      <span class="stage-num">I</span>
+      <div class="stage-name">The Blueprint</div>
+      <p class="stage-desc">Your health chronology, patterns, history, and goals — built together into a written document. Yours to keep.</p>
+    </div>
+    <div class="arc-arrow">→</div>
+    <div class="arc-stage featured">
+      <span class="stage-num">II</span>
+      <div class="stage-name">The Study</div>
+      <p class="stage-desc">The ongoing work. Quarterly check-ins, iterative refinement. Each one sharpens the plan. Each one gets closer to what feels true.</p>
+    </div>
+    <div class="arc-arrow">→</div>
+    <div class="arc-stage">
+      <span class="stage-num">III</span>
+      <div class="stage-name">The View<br>from Here</div>
+      <p class="stage-desc">A formal pause at six and twelve months. The client looks back at the journey already made, celebrates it, and decides what matters next.</p>
+    </div>
+    <div class="arc-arrow">→</div>
+    <div class="arc-stage destination">
+      <span class="stage-num">destination</span>
+      <div class="stage-name">Her Own<br>Work</div>
+      <p class="stage-desc">The life she has made. Well in her body. Present in her life. Performing in every role that matters to her.</p>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div>
+      <p class="col-head">What the client receives</p>
+      <div class="col-item">
+        <div class="col-item-title">A complete picture</div>
+        <p class="col-item-body">A full written understanding of her health — history, patterns, goals — in a document that belongs to her.</p>
+      </div>
+      <div class="col-item">
+        <div class="col-item-title">A plan she helped create</div>
+        <p class="col-item-body">Built in conversation, reflecting her own priorities and her own life. Made with her, not handed to her.</p>
+      </div>
+      <div class="col-item">
+        <div class="col-item-title">Continuity over time</div>
+        <p class="col-item-body">A practitioner who knows her story at six months, twelve months, three years. Who notices what has changed.</p>
+      </div>
+      <div class="col-item">
+        <div class="col-item-title">Accountability for success</div>
+        <p class="col-item-body">The View from Here stops the client before the next chapter. She sees the journey already made — and its value — before moving on.</p>
+      </div>
+    </div>
+    <div>
+      <p class="col-head">What makes this different</p>
+      <div class="col-item">
+        <div class="col-item-title">Twenty years of clinical expertise</div>
+        <p class="col-item-body">Acupuncture, functional medicine, TCM, LLLT, reflexology. Lora looks at the convergence of stresses across a whole life — not a single presenting problem.</p>
+      </div>
+      <div class="col-item">
+        <div class="col-item-title">The eye of a fine artist</div>
+        <p class="col-item-body">Lora trained first in fine art. She brought that eye — trained to observe, to see the whole composition — into twenty years of clinical practice.</p>
+      </div>
+      <div class="col-item">
+        <div class="col-item-title">The whole picture</div>
+        <p class="col-item-body">Most practitioners treat the presenting problem. Lora looks at the convergence of stresses across a whole life — hormonal, emotional, physical — and builds from there.</p>
+      </div>
+      <div class="col-item">
+        <div class="col-item-title">Independent of the treatment room</div>
+        <p class="col-item-body">The Blueprint and Study sit alongside clinical treatment. The relationship deepens over time, in the room and between sessions.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="copy-block">
+    <p class="copy-text">Well in your body. Present in your life. Performing in every role that matters to you. Most women never get there — because nobody has ever helped them see the whole picture. That's where we start.</p>
+  </div>
+
+  <div class="pricing-strip">
+    <div class="price-cell">
+      <p class="price-tier">Entry</p>
+      <p class="price-name">Blueprint</p>
+      <p class="price-amount">£450 <span>one-time</span></p>
+      <p class="price-desc">Two consultations. Full written Blueprint document. Agreed plan of treatment. Yours to keep — no commitment beyond this.</p>
+    </div>
+    <div class="price-cell mid">
+      <p class="price-tier">Recommended</p>
+      <p class="price-name">Blueprint + Study</p>
+      <p class="price-amount">£450 <span>+ £97/mo</span></p>
+      <p class="price-desc">Everything in the Blueprint, plus quarterly check-ins, ongoing guidance, and iterative plan updates. Approx. £1,600/year.</p>
+    </div>
+    <div class="price-cell">
+      <p class="price-tier">Full programme</p>
+      <p class="price-name">Blueprint + Annual</p>
+      <p class="price-amount">£450 <span>+ £127/mo</span></p>
+      <p class="price-desc">Everything above, plus the six-month View from Here, twelve-month Annual review, and year-two Blueprint included. Approx. £1,950/year.</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p class="footer-name">Lora Macfarlane BSc MBAcC</p>
+    <p class="footer-arc">Blueprint → Study → View from Here → Her Own Work</p>
+    <p class="footer-url">loramacfarlane.com</p>
+  </div>
+
+</div>
+</body>
+</html>
